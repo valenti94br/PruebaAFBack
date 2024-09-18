@@ -1,7 +1,7 @@
 const Report = require("../models/Report");
 
-const Reportontroller = {
-    async createNew(req, res) {
+const ReportController = {
+    async createReport(req, res) {
         try {
             const report = await Report.create(req.body)
             res.status(201).send(report)
@@ -12,4 +12,4 @@ const Reportontroller = {
     },
 }
 
-module.exports = ReportControllerController;
+module.exports = ReportController;

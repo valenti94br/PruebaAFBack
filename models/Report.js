@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { report } = require('../routes/reports');
 
 const ReportSchema = new mongoose.Schema({
   title: String,
@@ -7,5 +8,6 @@ const ReportSchema = new mongoose.Schema({
   dateOfArchive: Date
 }, { timestamps: true });
 
+const Report = mongoose.model('Report', ReportSchema);
 
-module.exports = mongoose.model('Report', reportSchema);
+module.exports = mongoose.model('Report', ReportSchema);
