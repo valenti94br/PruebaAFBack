@@ -39,14 +39,18 @@ const ReportController = {
     },
     async update(req, res) {
         try {
-            const report = await Report.findByIdAndUpdate(req.params._id, req.body,
-                { new: true })
+            const report = await Report.findByIdAndUpdate(
+                req.params._id,
+                { ...req.body, archived: true },
+                { new: true }
+            );
             res.send({ message: "Noticia actualizada", report });
         } catch (error) {
             console.error(error);
-            res.status(500).send({ msg: 'Ha habido un problema al actualizar la noticia', error })
+            res.status(500).send({ msg: 'Ha habido un problema al actualizar la noticia', error });
         }
-    },
+    }
+    
 };
 
 module.exports = ReportController;
